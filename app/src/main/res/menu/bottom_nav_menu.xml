@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/bottom_nav_dashboard"
+        android:title="Dashboard"
+        android:icon="@drawable/ic_dashboard"
+        app:cnb_backgroundColor="@color/abu_abu"/>
+
+    <item
+        android:id="@+id/bottom_nav_profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_profile"
+        app:cnb_backgroundColor="@color/abu_abu"/>
+
+    <item
+        android:id="@+id/bottom_nav_turnamen"
+        android:title="Turnamen"
+        android:icon="@drawable/ic_turnamen"
+        app:cnb_backgroundColor="@color/abu_abu"/>
+
+    <item
+        android:id="@+id/bottom_nav_logout"
+        android:title="Logout"
+        android:icon="@drawable/ic_exit"
+        app:cnb_backgroundColor="@color/abu_abu"/>
+
+</menu>

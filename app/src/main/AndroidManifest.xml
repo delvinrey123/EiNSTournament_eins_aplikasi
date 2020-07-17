@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.delvinstudio.einstournament">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Fragment.main_menu_dashboard"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.SignUp" />
+        <activity android:name=".activity.User" />
+        <activity android:name=".activity.Login" />
+        <activity android:name=".Test" />
+        <activity android:name=".data_input_team" />
+        <activity android:name=".input_tournament.input_tournament" />
+        <activity android:name=".activity.Dashboard" />
+        <activity android:name=".activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.PilihanPubg"
+            android:parentActivityName=".activity.Pubg" />
+        <activity
+            android:name=".activity.PilihanFf"
+            android:parentActivityName=".activity.Ff" />
+        <activity
+            android:name=".activity.Ff"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.Pubg"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:parentActivityName=".activity.Dashboard" />
+    </application>
+
+</manifest>

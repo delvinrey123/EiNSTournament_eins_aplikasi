@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grayLight"
+    android:orientation="vertical"
+    tools:context=".Fragment.ProfileFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_405sdp">
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_250sdp"
+            android:background="@drawable/gradient_background"
+            android:orientation="vertical"
+            android:padding="@dimen/_20sdp">
+
+            <ImageView
+                android:layout_width="@dimen/_125sdp"
+                android:layout_height="@dimen/_125sdp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/user_profile" />
+
+            <TextView
+                android:id="@+id/tv_user_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/baloo"
+                android:text="DELVIN REYNALDI"
+                android:textColor="#fff"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card1"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_200sdp"
+            app:cardCornerRadius="@dimen/_30sdp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal"
+                app:cardCornerRadius="@dimen/_64sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/eins_512" />
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_below="@id/card1"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email :"
+                android:textSize="@dimen/_16sdp"
+                android:textColor="@color/startBlue"
+                android:fontFamily="@font/baloo"/>
+
+            <LinearLayout
+                android:id="@+id/layoutTv1"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvEmail">
+
+                <ImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/ic_profile_mail"/>
+
+                <TextView
+                    android:id="@+id/tv_profile_emailuser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
+                    android:textColor="@color/Black"
+                    android:fontFamily="@font/titillium"
+                    android:text="delvin@delvin.com"
+                    android:padding="@dimen/_8sdp"
+                    android:textSize="@dimen/_18sdp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password :"
+                android:textSize="@dimen/_16sdp"
+                android:textColor="@color/startBlue"
+                android:fontFamily="@font/baloo"
+                android:layout_below="@id/layoutTv1"/>
+
+            <LinearLayout
+                android:id="@+id/layoutTv2"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvPassword">
+
+                <ImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/ic_profile_userpass"/>
+
+                <TextView
+                    android:id="@+id/tv_profile_passworduser"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/titillium"
+                    android:layout_height="@dimen/_40sdp"
+                    android:textColor="@color/Black"
+                    android:text="******"
+                    android:padding="@dimen/_8sdp"
+                    android:textSize="@dimen/_18sdp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Lengkap :"
+                android:textSize="@dimen/_16sdp"
+                android:textColor="@color/startBlue"
+                android:fontFamily="@font/baloo"
+                android:layout_below="@id/layoutTv2"/>
+
+            <LinearLayout
+                android:id="@+id/layoutTv3"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvFullName">
+
+                <ImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/ic_profile_namalengkap"/>
+
+                <TextView
+                    android:id="@+id/tv_profile_namaUser"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/titillium"
+                    android:layout_height="@dimen/_40sdp"
+                    android:textColor="@color/Black"
+                    android:text="Delvin Reynaldi"
+                    android:padding="@dimen/_8sdp"
+                    android:textSize="@dimen/_18sdp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvSquad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Squad :"
+                android:textSize="@dimen/_16sdp"
+                android:textColor="@color/startBlue"
+                android:fontFamily="@font/baloo"
+                android:layout_below="@id/layoutTv3"/>
+
+            <LinearLayout
+                android:id="@+id/layoutTv4"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvSquad">
+
+                <ImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/ic_squad"/>
+
+                <TextView
+                    android:id="@+id/tv_profile_squaduser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
+                    android:textColor="@color/Black"
+                    android:text="Eternity Noxious"
+                    android:fontFamily="@font/titillium"
+                    android:padding="@dimen/_8sdp"
+                    android:textSize="@dimen/_18sdp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_profile_nowa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No WhatsApp :"
+                android:textSize="@dimen/_16sdp"
+                android:textColor="@color/startBlue"
+                android:fontFamily="@font/baloo"
+                android:layout_below="@id/layoutTv4"/>
+
+            <LinearLayout
+                android:id="@+id/layoutTv5"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_profile_nowa">
+
+                <ImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/ic_whatsapp"/>
+
+                <TextView
+                    android:id="@+id/tv_profile_nowa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
+                    android:fontFamily="@font/titillium"
+                    android:padding="@dimen/_8sdp"
+                    android:text="0895621338413"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_18sdp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutTv6"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layoutTv5"
+                android:gravity="center">
+
+                <Button
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit Profil"
+                    android:background="@drawable/ic_button_cornered_blue"/>
+
+            </LinearLayout>
+            
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</ScrollView>

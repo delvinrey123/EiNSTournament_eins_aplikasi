@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">EiNSTournament</string>
+    <string name="invalid_name">Username Tidak Boleh Kosong</string>
+    <string name="invalid_pass">Password Harus Terdiri 6 Angka</string>
+    <string name="lebih_dari_10_angka">Nama Harus Lebih Dari 10 Angka</string>
+    <string name="tidak_boleh_kosong">Kotak ini Tidak Boleh Kosong</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

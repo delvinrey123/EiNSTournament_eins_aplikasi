@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Biru"
+    tools:context=".Fragment.TurnamenFragment">
+
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_10sdp"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_back" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_search" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/brandon_grotesque_black"
+            android:padding="@dimen/_10sdp"
+            android:text="Turnamen"
+            android:textAllCaps="true"
+            android:textColor="@color/White"
+            android:textSize="@dimen/_30sdp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_190sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:layout_margin="@dimen/_20sdp"
+                android:background="@drawable/round_bk2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:padding="@dimen/_25sdp"
+                    android:text="PUBG Mobile"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_18sdp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@android:color/transparent"
+                    android:padding="@dimen/_25sdp"
+                    android:text="Lihat Semua"
+                    android:textColor="@color/Black" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="@dimen/_170sdp"
+                android:layout_height="@dimen/_170sdp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="-14dp"
+                android:src="@drawable/pubg_mobile_chara" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_190sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:layout_margin="@dimen/_20sdp"
+                android:background="@drawable/round_bk5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/baloo"
+                    android:padding="@dimen/_25sdp"
+                    android:text="Mobile Legends"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/_18sdp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:background="@android:color/transparent"
+                    android:padding="@dimen/_25sdp"
+                    android:text="Lihat Semua"
+                    android:textColor="@color/White" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_200sdp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="-50dp"
+                android:layout_marginTop="-20dp"
+                android:src="@drawable/mobile_legend_chara" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_190sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:layout_margin="@dimen/_20sdp"
+                android:background="@drawable/round_bk2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:padding="@dimen/_25sdp"
+                    android:text="Free Fire"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_18sdp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@android:color/transparent"
+                    android:padding="@dimen/_25sdp"
+                    android:text="Lihat Semua"
+                    android:textColor="@color/Black" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="-20dp"
+                android:src="@drawable/free_fire_chara" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp">
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

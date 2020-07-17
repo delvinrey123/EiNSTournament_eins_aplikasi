@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "687274589817",
+    "firebase_url": "https://einstournament.firebaseio.com",
+    "project_id": "einstournament",
+    "storage_bucket": "einstournament.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687274589817:android:e4a3e31784618465161ea8",
+        "android_client_info": {
+          "package_name": "com.delvinstudio.einstournament"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "687274589817-439ttre6j4untslaqqvr9b6rt5q7bbrh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.delvinstudio.einstournament",
+            "certificate_hash": "d142cfb55c9231bce1ca134990bd8a44a74230e9"
+          }
+        },
+        {
+          "client_id": "687274589817-vp0vdl8agqtksso2egulh4savgd2sobd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8U7kE9QKVHQTMRX0NtBib5x9AgF3kMJE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "687274589817-vp0vdl8agqtksso2egulh4savgd2sobd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

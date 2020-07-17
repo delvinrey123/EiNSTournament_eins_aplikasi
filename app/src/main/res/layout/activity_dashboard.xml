@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/Biru"
+    tools:context=".activity.Dashboard">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivEins"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="28dp"
+            app:srcCompat="@drawable/eins_shadow" />
+
+        <TextView
+            android:id="@+id/tvDisplayNameUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivEins"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/titillium"
+            android:gravity="center"
+            android:text="Selamat Datang"
+            android:textColor="@color/White"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_user_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivEins"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/titillium"
+            android:gravity="center"
+            android:text="Admin"
+            android:textColor="@color/White"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/btnInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvDisplayNameUser"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/kotak_hitam"
+            android:fontFamily="@font/titillium"
+            android:text="Input Tournament"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnLihat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnInput"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/kotak_hitam"
+            android:fontFamily="@font/titillium"
+            android:text="Lihat Tournament"
+            android:textStyle="bold" />
+
+
+        <Button
+            android:id="@+id/btnPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnLihat"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/kotak_hitam"
+            android:fontFamily="@font/titillium"
+            android:text="Point Tournament"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_signout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnPoint"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/kotak_hitam"
+            android:fontFamily="@font/titillium"
+            android:onClick="signOut"
+            android:text="Sign OUT"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_signout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="Copyright © EiNS 2020"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold|italic" />
+
+    </LinearLayout>
+
+</ScrollView>

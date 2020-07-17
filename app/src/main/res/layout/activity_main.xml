@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Biru"
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvPubg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/titillium"
+            android:gravity="center"
+            android:text="PUBG MOBILE"
+            android:textColor="@color/White"
+            android:textSize="44sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivPubg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/pubg_bg" />
+
+        <TextView
+            android:id="@+id/tvFreeFire"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/titillium"
+            android:gravity="center"
+            android:text="FREE FIRE"
+            android:textColor="@color/White"
+            android:textSize="44sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivFf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/ff_bg" />
+
+    </LinearLayout>
+
+</ScrollView>

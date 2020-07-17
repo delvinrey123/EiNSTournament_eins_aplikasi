@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#2CA7E0</color>
+    <color name="White">#FFFFFF</color>
+    <color name="Black">#000000</color>
+    <color name="Biru">#2CA7E0</color>
+    <color name="abu_abu">#1B1A22</color>
+
+
+    <!--Dashboard Color -->
+
+        <!--Dashboard Color -->
+        <color name="home_background">#f2f5f8</color>
+        <color name="banner_background">#f1e9ce</color>
+        <color name="banner_background_light">#56f1e9ce</color>
+
+
+        <!--Card Color -->
+
+        <color name="card1">#d4cb35</color>
+        <color name="card2">#7adccf</color>
+        <color name="card3">#f7c59f</color>
+        <color name="card4">#b8d7f5</color>
+    
+        <!--Profile Color -->
+        <color name="kolorPrimaryDark">#292b3d</color>
+        <color name="grayLight">#fafafa</color>
+        <color name="startBlue">#09c6df</color>
+        <color name="endBlue">#0bcce6</color>
+        <color name="kolorAccent">#FF4081</color>
+
+</resources>
