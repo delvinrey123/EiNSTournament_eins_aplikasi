@@ -37,7 +37,7 @@ public class main_menu_dashboard extends AppCompatActivity {
                 Fragment fragment = null;
                 switch (i) {
                     case R.id.bottom_nav_dashboard:
-                        fragment = new ListDaftarTurnamen();
+                        fragment = new DashboardFragment();
                         break;
 
                     case R.id.bottom_nav_profile:
