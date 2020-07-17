@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.delvinstudio.einstournament.activity.Login;
 import com.delvinstudio.einstournament.R;
-import com.delvinstudio.einstournament.pref.preferences;
+
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
@@ -37,7 +37,7 @@ public class main_menu_dashboard extends AppCompatActivity {
                 Fragment fragment = null;
                 switch (i) {
                     case R.id.bottom_nav_dashboard:
-                        fragment = new DashboardFragment();
+                        fragment = new ListDaftarTurnamen();
                         break;
 
                     case R.id.bottom_nav_profile:
@@ -69,7 +69,6 @@ public class main_menu_dashboard extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 startActivity(new Intent(main_menu_dashboard.this, Login.class));
                 toastBerhasilKeluar();
-                preferences.clearData(main_menu_dashboard.this);
             }
         });
         alertDialogBuilder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {

@@ -14,7 +14,6 @@
         <activity android:name=".Fragment.main_menu_dashboard"
             android:screenOrientation="portrait"/>
         <activity android:name=".activity.SignUp" />
-        <activity android:name=".activity.User" />
         <activity android:name=".activity.Login" />
         <activity android:name=".Test" />
         <activity android:name=".data_input_team" />

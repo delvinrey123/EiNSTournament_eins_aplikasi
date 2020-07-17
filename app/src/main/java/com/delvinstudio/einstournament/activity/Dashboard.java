@@ -14,8 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.delvinstudio.einstournament.R;
-import com.delvinstudio.einstournament.pref.UserHelperClass;
-import com.delvinstudio.einstournament.pref.preferences;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -82,7 +80,6 @@ public class Dashboard extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 startActivity(new Intent (Dashboard.this, Login.class));
                 Toast.makeText(Dashboard.this, "Anda Berhasil Keluar", Toast.LENGTH_SHORT).show();
-                preferences.clearData(Dashboard.this);
                 finish();
             }
         });
