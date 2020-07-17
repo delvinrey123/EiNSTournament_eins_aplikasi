@@ -45,7 +45,7 @@ public class ListDaftarTurnamen extends Fragment {
         //load list turnamen
         recycler_list_turnamen = (RecyclerView) view.findViewById(R.id.recycler_view_list_daftar_turnamen);
         recycler_list_turnamen.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager = new LinearLayoutManager(getContext());
         recycler_list_turnamen.setLayoutManager(layoutManager);
 
         loadListTurnamen();
