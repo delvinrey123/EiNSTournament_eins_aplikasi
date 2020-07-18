@@ -1,30 +1,31 @@
 package com.delvinstudio.einstournament.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import com.delvinstudio.einstournament.Model.DataSetTurnamen;
+import com.delvinstudio.einstournament.Model.ModelTurnamenMl;
 import com.delvinstudio.einstournament.R;
-import com.delvinstudio.einstournament.ViewHolder.FirebaseMLTurnamenViewHolder;
+import com.delvinstudio.einstournament.ViewHolder.TurnamenMlViewHolder;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
+import com.squareup.picasso.Picasso;
 
 public class UserListTurnamen extends AppCompatActivity {
 
-    FirebaseDatabase database;
-    DatabaseReference userListTurnamenMl;
+    DatabaseReference ref;
+    private FirebaseRecyclerOptions<ModelTurnamenMl> options;
+    private FirebaseRecyclerAdapter<ModelTurnamenMl, TurnamenMlViewHolder> adapter;
 
-    private RecyclerView recyclerViewTurnamen;
-    private ArrayList<DataSetTurnamen> arrayList;
-    private FirebaseRecyclerOptions<DataSetTurnamen> options;
-    private FirebaseRecyclerOptions<DataSetTurnamen, FirebaseMLTurnamenViewHolder> adapter;
-
+    private RecyclerView recyclerViewTurnamenMl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,20 +36,32 @@ public class UserListTurnamen extends AppCompatActivity {
         //actionBar = getSupportActionBar();
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //init firebase
-        database = FirebaseDatabase.getInstance();
-        userListTurnamenMl = database.getReference("turnamen_ml");
+        ref = FirebaseDatabase.getInstance().getReference().child("turnamenMl");
 
-        //Load Menu
-        recyclerViewTurnamen = findViewById(R.id.recycler_view_turnamen);
-        recyclerViewTurnamen.setHasFixedSize(true);
-        recyclerViewTurnamen.setLayoutManager(new LinearLayoutManager(this));
-        arrayList = new ArrayList<DataSetTurnamen>();
+        recyclerViewTurnamenMl = findViewById(R.id.recycler_view_turnamen);
+        recyclerViewTurnamenMl.setHasFixedSize(true);
+        recyclerViewTurnamenMl.setLayoutManager(new LinearLayoutManager(this));
 
-        options = new FirebaseRecyclerOptions.Builder<DataSetTurnamen>().setQuery()
+        options = new FirebaseRecyclerOptions.Builder<ModelTurnamenMl>().setQuery(ref, ModelTurnamenMl.class).build();
+        adapter = new FirebaseRecyclerAdapter<ModelTurnamenMl, TurnamenMlViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull TurnamenMlViewHolder holder, int position, @NonNull ModelTurnamenMl model) {
 
+                holder.namaTurnamen.setText("" + model.getNamaTurnamen());
+                Picasso.get().load(model.getImage())
+                        .into(holder.image);
+            }
 
+            @NonNull
+            @Override
+            public TurnamenMlViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_item, parent, false);
 
+                return new TurnamenMlViewHolder(v);
+            }
+        };
+
+        adapter.startListening();
+        recyclerViewTurnamenMl.setAdapter(adapter);
     }
-
 }

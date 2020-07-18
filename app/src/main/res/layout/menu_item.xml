@@ -3,12 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/_180sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="@dimen/_4sdp">
+    app:cardElevation="@dimen/_10sdp"
+    app:cardCornerRadius="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_10sdp">
     
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/_10sdp">
+        android:padding="@dimen/_10sdp"
+        android:background="@color/grayLight">
 
         <ImageView
             android:id="@+id/menu_imageturnamen"

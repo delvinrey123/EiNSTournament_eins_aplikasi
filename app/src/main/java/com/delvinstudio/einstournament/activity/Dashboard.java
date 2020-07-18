@@ -14,8 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.delvinstudio.einstournament.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,10 +24,6 @@ public class Dashboard extends AppCompatActivity {
 
     Button mBtnInput, mBtnLihat, mBtnPoint, mBtnSignout;
     ProgressDialog progressDialog;
-
-    //Firebase Logout
-    FirebaseAuth auth;
-    FirebaseUser user;
 
     //variabel database firebase
     FirebaseDatabase database;
@@ -46,9 +40,6 @@ public class Dashboard extends AppCompatActivity {
         mBtnPoint = findViewById(R.id.btnPoint);
         mBtnSignout = findViewById(R.id.btn_signout);
 
-        //Firebase
-        auth = FirebaseAuth.getInstance();
-        user = auth.getCurrentUser();
 
         //init firebase
         database = FirebaseDatabase.getInstance();
