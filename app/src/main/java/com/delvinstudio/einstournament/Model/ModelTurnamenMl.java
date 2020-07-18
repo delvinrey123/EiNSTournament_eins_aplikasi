@@ -1,15 +1,14 @@
 package com.delvinstudio.einstournament.Model;
 
 public class ModelTurnamenMl {
-    private String namaTurnamen;
-    private String image;
-
-    public ModelTurnamenMl() {
-    }
+    private String namaTurnamen, image;
 
     public ModelTurnamenMl(String namaTurnamen, String image) {
         this.namaTurnamen = namaTurnamen;
         this.image = image;
+    }
+
+    public ModelTurnamenMl() {
     }
 
     public String getNamaTurnamen() {
