@@ -22,10 +22,10 @@ import com.squareup.picasso.Picasso;
 public class UserListTurnamen extends AppCompatActivity {
 
     DatabaseReference ref;
-    private FirebaseRecyclerOptions<ModelTurnamenMl> options;
-    private FirebaseRecyclerAdapter<ModelTurnamenMl, TurnamenMlViewHolder> adapter;
+    FirebaseRecyclerOptions<ModelTurnamenMl> options;
+    FirebaseRecyclerAdapter<ModelTurnamenMl, TurnamenMlViewHolder> adapter;
 
-    private RecyclerView recyclerViewTurnamenMl;
+    RecyclerView recyclerViewTurnamenMl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +39,17 @@ public class UserListTurnamen extends AppCompatActivity {
         ref = FirebaseDatabase.getInstance().getReference().child("turnamenMl");
 
         recyclerViewTurnamenMl = findViewById(R.id.recycler_view_turnamen);
+        recyclerViewTurnamenMl.setAdapter(adapter);
+
         recyclerViewTurnamenMl.setHasFixedSize(true);
-        recyclerViewTurnamenMl.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewTurnamenMl.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         options = new FirebaseRecyclerOptions.Builder<ModelTurnamenMl>().setQuery(ref, ModelTurnamenMl.class).build();
         adapter = new FirebaseRecyclerAdapter<ModelTurnamenMl, TurnamenMlViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull TurnamenMlViewHolder holder, int position, @NonNull ModelTurnamenMl model) {
 
-                holder.namaTurnamen.setText("" + model.getNamaTurnamen());
+                holder.namaTurnamen.setText(model.getNamaTurnamen());
                 Picasso.get().load(model.getImage())
                         .into(holder.image);
             }
@@ -57,11 +59,11 @@ public class UserListTurnamen extends AppCompatActivity {
             public TurnamenMlViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_item, parent, false);
 
+
                 return new TurnamenMlViewHolder(v);
             }
         };
 
-        adapter.startListening();
-        recyclerViewTurnamenMl.setAdapter(adapter);
+
     }
 }
