@@ -1,5 +1,6 @@
 package com.delvinstudio.einstournament.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,9 +14,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.delvinstudio.einstournament.Interface.ItemClickListener;
 import com.delvinstudio.einstournament.Model.ModelJenisTurnamenMl;
 import com.delvinstudio.einstournament.R;
 import com.delvinstudio.einstournament.ViewHolder.JenisTurnamenViewHolder;
+import com.delvinstudio.einstournament.activity.UserListTurnamen.UserListTurnamenDetail;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -55,6 +58,15 @@ public class TurnamenFragment extends Fragment {
             protected void onBindViewHolder(@NonNull JenisTurnamenViewHolder holder, int position, @NonNull ModelJenisTurnamenMl model) {
                 holder.tvJenisTurnamen.setText(model.getNamaTurnamen());
                 Picasso.get().load(model.getImageTurnamen()).into(holder.ivJenisTurnamen);
+
+                holder.setItemClickListener(new ItemClickListener() {
+                    @Override
+                    public void onClick(View view, int position, boolean isLongClick) {
+                        Intent detailTurnamen = new Intent (getActivity(), UserListTurnamenDetail.class);
+                        detailTurnamen.putExtra("listTurnamenKey", getRef(position).getKey());
+                        startActivity(detailTurnamen);
+                    }
+                });
 
             }
 

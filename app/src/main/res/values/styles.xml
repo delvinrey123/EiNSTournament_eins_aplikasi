@@ -15,4 +15,15 @@
         <item name="DialogSpotCount">6</item>
     </style>
 
+    <style name="CollapsedAppBar" parent="TextAppearance.AppCompat.Medium">
+        <item name ="android:textSize">@dimen/_22sdp</item>
+        <item name ="android:textColor">@android:color/white</item>
+        <item name ="android:textStyle">normal</item>
+    </style>
+
+    <style name="ExpandedAppBar" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name ="android:textColor">@color/colorPrimary</item>
+        <item name ="android:textStyle">normal</item>
+    </style>
+
 </resources>
