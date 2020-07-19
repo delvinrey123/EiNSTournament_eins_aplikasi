@@ -14,7 +14,12 @@ public class JenisTurnamenViewHolder extends RecyclerView.ViewHolder implements 
 
     public ImageView ivJenisTurnamen;
     public TextView tvJenisTurnamen;
-    public View v;
+
+    private ItemClickListener itemClickListener;
+
+    public void setItemClickListener(ItemClickListener itemClickListener) {
+        this.itemClickListener = itemClickListener;
+    }
 
     public JenisTurnamenViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -22,12 +27,12 @@ public class JenisTurnamenViewHolder extends RecyclerView.ViewHolder implements 
         ivJenisTurnamen = itemView.findViewById(R.id.iv_menu_turnamen_ml);
         tvJenisTurnamen = itemView.findViewById(R.id.tv_menu_turnamen_ml);
 
-        v=itemView;
+        itemView.setOnClickListener(this);
     }
 
     @Override
-    public void onClick(View v) {
-
+    public void onClick(View view) {
+        itemClickListener.onClick(view, getAdapterPosition(), false);
     }
 }
 

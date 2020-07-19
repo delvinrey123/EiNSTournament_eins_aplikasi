@@ -2,17 +2,16 @@ package com.delvinstudio.einstournament.Model;
 
 public class ModelJenisTurnamenMl {
     private String namaTurnamen, imageTurnamen, hargaTurnamen, authorTurnamen,
-                    idTurnamen, deskripsiTurnamen, tanggalTurnamen;
+                    deskripsiTurnamen, tanggalTurnamen;
 
     public ModelJenisTurnamenMl() {
     }
 
-    public ModelJenisTurnamenMl(String namaTurnamen, String imageTurnamen, String hargaTurnamen, String authorTurnamen, String idTurnamen, String deskripsiTurnamen, String tanggalTurnamen) {
+    public ModelJenisTurnamenMl(String namaTurnamen, String imageTurnamen, String hargaTurnamen, String authorTurnamen, String deskripsiTurnamen, String tanggalTurnamen) {
         this.namaTurnamen = namaTurnamen;
         this.imageTurnamen = imageTurnamen;
         this.hargaTurnamen = hargaTurnamen;
         this.authorTurnamen = authorTurnamen;
-        this.idTurnamen = idTurnamen;
         this.deskripsiTurnamen = deskripsiTurnamen;
         this.tanggalTurnamen = tanggalTurnamen;
     }
@@ -47,14 +46,6 @@ public class ModelJenisTurnamenMl {
 
     public void setAuthorTurnamen(String authorTurnamen) {
         this.authorTurnamen = authorTurnamen;
-    }
-
-    public String getIdTurnamen() {
-        return idTurnamen;
-    }
-
-    public void setIdTurnamen(String idTurnamen) {
-        this.idTurnamen = idTurnamen;
     }
 
     public String getDeskripsiTurnamen() {
