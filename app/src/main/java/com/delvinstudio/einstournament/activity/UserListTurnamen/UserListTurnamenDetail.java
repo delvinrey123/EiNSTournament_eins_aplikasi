@@ -2,13 +2,21 @@ package com.delvinstudio.einstournament.activity.UserListTurnamen;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.os.Bundle;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.delvinstudio.einstournament.Model.ModelJenisTurnamenMl;
 import com.delvinstudio.einstournament.R;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -16,14 +24,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
+import com.shreyaspatil.MaterialDialog.interfaces.DialogInterface;
 import com.squareup.picasso.Picasso;
 
 public class UserListTurnamenDetail extends AppCompatActivity {
 
-    TextView namaTurnamen, hargaTurnamen, authorTurnamen, deskripsiTurnamen, tanggalTurnamen;
-    ImageView imgTurnamen;
-    CollapsingToolbarLayout collapsingToolbarLayout;
-    FloatingActionButton fab;
+    TextView namaTurnamen, hargaTurnamen, authorTurnamen, deskripsiTurnamen, tanggalTurnamen, kontakTurnamen;
+    PhotoView imgTurnamen;
+
+    Button arrowBtn;
+    CardView cardView, expandableView;
 
     FirebaseDatabase database;
     DatabaseReference ref;
@@ -38,19 +49,37 @@ public class UserListTurnamenDetail extends AppCompatActivity {
         ref = database.getReference("listTurnamen");
 
 
+
         //init views
-        fab = (FloatingActionButton) findViewById(R.id.btnHubungiWa);
+       // fab = (FloatingActionButton) findViewById(R.id.btnHubungiWa);
 
         namaTurnamen = (TextView) findViewById(R.id.detail_nama_turnamen);
         hargaTurnamen = (TextView) findViewById(R.id.detail_harga_turnamen);
         deskripsiTurnamen = (TextView) findViewById(R.id.detail_deskripsi_turnamen);
         tanggalTurnamen = (TextView) findViewById(R.id.detail_tanggal_turnamen);
         authorTurnamen = (TextView) findViewById(R.id.detail_author_turnamen);
-        imgTurnamen = (ImageView) findViewById(R.id.detail_img_turnamen);
+        imgTurnamen = (PhotoView) findViewById(R.id.detail_img_turnamen);
 
-        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing);
-        collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
-        collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
+        kontakTurnamen = (TextView)findViewById(R.id.detail_kontak_turnamen);
+
+        //layout
+        expandableView = findViewById(R.id.expandable_menu);
+        cardView = findViewById(R.id.cardview1);
+        arrowBtn = findViewById(R.id.btn_bawah);
+        arrowBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (expandableView.getVisibility()==View.GONE){
+                    TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
+                    expandableView.setVisibility(View.VISIBLE);
+                    arrowBtn.setBackgroundResource(R.drawable.ic_arrow_up_black);
+                } else {
+                    TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
+                    expandableView.setVisibility(View.GONE);
+                    arrowBtn.setBackgroundResource(R.drawable.ic_arrow_down);
+                }
+            }
+        });
 
         getListTurnamenDetail();
     }
@@ -65,15 +94,12 @@ public class UserListTurnamenDetail extends AppCompatActivity {
                 if (snapshot.exists()) {
 
 
-                    collapsingToolbarLayout.setTitle(model.getNamaTurnamen());
-
+                    namaTurnamen.setText(model.getNamaTurnamen());
                     hargaTurnamen.setText(model.getHargaTurnamen());
-
-                    deskripsiTurnamen.setText(model.getDeskripsiTurnamen());
-
-                    tanggalTurnamen.setText(model.getTanggalTurnamen());
-
                     authorTurnamen.setText(model.getAuthorTurnamen());
+                    deskripsiTurnamen.setText(model.getDeskripsiTurnamen());
+                    tanggalTurnamen.setText(model.getTanggalTurnamen());
+                    kontakTurnamen.setText(model.getKontakTurnamen());
 
                     Picasso.get().load(model.getImageTurnamen()).into(imgTurnamen);
 

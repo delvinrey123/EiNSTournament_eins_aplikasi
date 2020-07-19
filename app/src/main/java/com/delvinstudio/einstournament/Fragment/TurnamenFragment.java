@@ -1,6 +1,7 @@
 package com.delvinstudio.einstournament.Fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,8 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.delvinstudio.einstournament.Interface.ItemClickListener;
 import com.delvinstudio.einstournament.Model.ModelJenisTurnamenMl;
@@ -24,6 +27,10 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
+
+import me.samlss.broccoli.Broccoli;
+import me.samlss.broccoli.BroccoliGradientDrawable;
+import me.samlss.broccoli.PlaceholderParameter;
 
 public class TurnamenFragment extends Fragment {
     RecyclerView recyclerViewJenisTurnamen;
@@ -64,6 +71,7 @@ public class TurnamenFragment extends Fragment {
                     public void onClick(View view, int position, boolean isLongClick) {
                         Intent detailTurnamen = new Intent (getActivity(), UserListTurnamenDetail.class);
                         detailTurnamen.putExtra("listTurnamenKey", getRef(position).getKey());
+
                         startActivity(detailTurnamen);
                     }
                 });
@@ -83,5 +91,4 @@ public class TurnamenFragment extends Fragment {
         recyclerViewJenisTurnamen.setAdapter(adapter);
 
     }
-
 }

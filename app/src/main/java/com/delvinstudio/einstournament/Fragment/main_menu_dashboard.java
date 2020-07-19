@@ -9,11 +9,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.delvinstudio.einstournament.Common.Common;
 import com.delvinstudio.einstournament.activity.Login;
 import com.delvinstudio.einstournament.R;
 
+import com.google.android.material.button.MaterialButton;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import com.shashank.sony.fancytoastlib.FancyToast;
+import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 public class main_menu_dashboard extends AppCompatActivity {
 
@@ -26,11 +31,11 @@ public class main_menu_dashboard extends AppCompatActivity {
 
         chipNavigationBar = findViewById(R.id.bottom_nav_menu);
         chipNavigationBar.setItemSelected(R.id.bottom_nav_dashboard, true);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashboardFragment() ).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashboardFragment()).commit();
         bottomMenu();
     }
 
-    public void bottomMenu(){
+    public void bottomMenu() {
         chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
             @Override
             public void onItemSelected(int i) {
@@ -58,7 +63,7 @@ public class main_menu_dashboard extends AppCompatActivity {
         });
     }
 
-    public void logout(){
+    private void logout() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Keluar");
         alertDialogBuilder.setIcon(R.drawable.ic_baseline_exit);

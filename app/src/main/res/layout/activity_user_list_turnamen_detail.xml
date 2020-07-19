@@ -1,203 +1,257 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context=".activity.UserListTurnamen.UserListTurnamenDetail">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collapsing"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_250sdp"
-            android:fitsSystemWindows="true"
-            app:contentScrim="#0e0d0e"
-            app:expandedTitleTextAppearance="@android:color/transparent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"></com.google.android.material.appbar.CollapsingToolbarLayout>
-
-        <ImageView
-            android:id="@+id/detail_img_turnamen"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@null"
-            android:scaleType="centerCrop"
-            app:layout_collapseMode="parallax" />
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="Nama Turnamen" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnHubungiWa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/white"
-        app:elevation="@dimen/_6sdp"
-        app:layout_anchor="@id/app_bar_layout"
-        app:layout_anchorGravity="bottom|right|end"
-        app:pressedTranslationZ="@dimen/_12sdp"
-        app:useCompatPadding="true" />
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:background="@drawable/gradient_background"
+        android:padding="@dimen/_12sdp">
 
-        <LinearLayout
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview1"
+            style="@style/CardView.Light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:padding="@dimen/_8sdp"
+            app:cardCornerRadius="@dimen/_12sdp"
+            app:cardElevation="@dimen/_12sdp">
 
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/_5sdp"
-                app:cardUseCompatPadding="true">
+                android:orientation="vertical">
+
+                <com.github.chrisbanes.photoview.PhotoView
+                    android:id="@+id/detail_img_turnamen"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ff_bg" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_height="@dimen/_70sdp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_12sdp">
+
+                    <ImageView
+                        android:id="@+id/detail_logo_game"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/vector_ml" />
 
                     <TextView
                         android:id="@+id/detail_nama_turnamen"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:padding="@dimen/_12sdp"
-                        android:text="Nama Turnamen"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_weight="3"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Nama Turnamen Disini"
                         android:textColor="@color/Black"
-                        android:textSize="@dimen/_18sdp"
+                        android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:id="@+id/layout_harga"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="@dimen/_12sdp">
+                    <Button
+                        android:id="@+id/btn_bawah"
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:background="@drawable/ic_arrow_down" />
 
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/_24sdp"
-                            android:layout_weight="1"
-                            android:src="@drawable/money" />
-
-                        <TextView
-                            android:id="@+id/detail_harga_turnamen"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/_8sdp"
-                            android:layout_weight="9"
-                            android:text="100.000"
-                            android:textColor="@color/Black"
-                            android:textSize="@dimen/_16sdp" />
-
-                    </LinearLayout>
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/expandable_menu"
+            style="@style/CardView.Light"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cardview1"
+            android:padding="@dimen/_8sdp"
+            app:cardCornerRadius="@dimen/_12sdp"
+            app:cardElevation="@dimen/_12sdp">
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardElevation="@dimen/_5sdp"
-                app:cardUseCompatPadding="true">
-
-                <TextView
-                    android:id="@+id/detail_deskripsi_turnamen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_12sdp"
-                    android:lineSpacingMultiplier="1.5"
-                    android:padding="@dimen/_12sdp"
-                    android:text="Description"
-                    android:textColor="@color/Black"
-                    android:textSize="@dimen/_16sdp" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardElevation="@dimen/_5sdp"
-                app:cardUseCompatPadding="true">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
+                    android:id="@+id/linearlayout1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_12sdp">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/iv_keterangan"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_note"
+                        android:tint="@color/Black" />
+
+                    <TextView
+                        android:id="@+id/detail_deskripsi_turnamen"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_weight="3"
+                        android:maxLines="15"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Deskripsi Turnamen Disini\nMaksimal 15 Baris"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/_10sdp"/>
+                </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="@dimen/_12sdp"
-                            android:text="Tanggal :"
-                            android:textColor="@color/Black"
-                            android:textSize="@dimen/_14sdp"
-                            android:textStyle="bold" />
+                <LinearLayout
+                    android:id="@+id/linearlayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/linearlayout1"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_12sdp">
 
-                        <TextView
-                            android:id="@+id/detail_tanggal_turnamen"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Tanggal Turnamen"
-                            android:textColor="@color/Black"
-                            android:textSize="@dimen/_14sdp" />
-                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/iv_detail_tanggal"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_date"
+                        android:tint="@color/Black" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/detail_tanggal_turnamen"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="@dimen/_12sdp"
-                            android:text="Turnamen By :"
-                            android:textColor="@color/Black"
-                            android:textSize="@dimen/_14sdp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/detail_author_turnamen"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Delvin Reynaldi"
-                            android:textColor="@color/Black"
-                            android:textSize="@dimen/_14sdp"
-                            android:textStyle="italic" />
-                    </LinearLayout>
+                        android:layout_gravity="center"
+                        android:padding="@dimen/_10sdp"
+                        android:text="29 July 2019"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/_12sdp" />
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:id="@+id/linearlayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/linearlayout2"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_12sdp">
 
-        </LinearLayout>
+                    <ImageView
+                        android:id="@+id/iv_detail_harga"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:src="@drawable/ic_harga"
+                        android:tint="@color/Black" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/_10sdp"
+                        android:text="IDR."
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/_12sdp" />
 
-    </androidx.core.widget.NestedScrollView>
+                    <TextView
+                        android:id="@+id/detail_harga_turnamen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
 
+                        android:layout_marginLeft="-24dp"
+                        android:padding="@dimen/_10sdp"
+                        android:text="50.000"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/_12sdp" />
+                </LinearLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+                <LinearLayout
+                    android:id="@+id/linearlayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/linearlayout3"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_12sdp">
+
+                    <ImageView
+                        android:id="@+id/iv_detail_kontak_turnamen"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:padding="@dimen/_5sdp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_whatsapp_black"
+                        android:tint="@color/Black" />
+
+                    <TextView
+                        android:id="@+id/detail_kontak_turnamen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="-1dp"
+                        android:padding="@dimen/_10sdp"
+                        android:text="0895-6213-38413"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearlayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/linearlayout4"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_12sdp">
+
+                    <ImageView
+                        android:id="@+id/iv_detail_author_turnamen"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:padding="@dimen/_5sdp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_person_black_24dp"
+                        android:tint="@color/Black" />
+
+                    <TextView
+                        android:id="@+id/detail_author_turnamen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="-1dp"
+                        android:padding="@dimen/_10sdp"
+                        android:text="EiNS"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</ScrollView>

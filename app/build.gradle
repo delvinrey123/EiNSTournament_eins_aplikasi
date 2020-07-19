@@ -58,6 +58,9 @@ dependencies {
 
     //spots dialog
     implementation 'com.github.d-max:spots-dialog:0.4@aar'
+    implementation 'com.shreyaspatil:MaterialDialog:2.1'
+
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
     implementation 'com.airbnb.android:lottie:3.4.1'
     implementation 'androidx.cardview:cardview:1.0.0'
@@ -83,6 +86,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+    implementation 'com.ryanjeffreybrooks:indefinitepagerindicator:1.0.10'
+
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+
+    implementation 'me.samlss:broccoli:1.0.0'
 
     implementation 'com.github.Shashank02051997:FancyAlertDialog-Android:0.1'
 
