@@ -19,6 +19,7 @@ import com.delvinstudio.einstournament.Common.Common;
 import com.delvinstudio.einstournament.Fragment.main_menu_dashboard;
 import com.delvinstudio.einstournament.Model.User;
 import com.delvinstudio.einstournament.R;
+import com.delvinstudio.einstournament.preferences.preferences;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,8 +33,8 @@ public class Login extends AppCompatActivity {
     AwesomeValidation awesomeValidation;
 
     Button btnLogin, btnSignUp, keFragment;
-    EditText username, password;
     Switch janganLogout;
+    EditText username, password;
 
     ProgressDialog dialog;
 
@@ -44,6 +45,7 @@ public class Login extends AppCompatActivity {
 
         //Login,
         btnLogin = findViewById(R.id.btn_login);
+
 
         //signup
         btnSignUp = findViewById(R.id.btn_signup);
@@ -93,26 +95,43 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (awesomeValidation.validate()) {
+                if (awesomeValidation.validate()){
                     dialog.show();
-                    //Init firebase
-                    final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    final DatabaseReference table_login = database.getReference("login");
-
-                    table_login.addValueEventListener(new ValueEventListener() {
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                    databaseReference.child("login").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            //cek data apakah sudah tersedia di database atau belum
-                            if (dataSnapshot.child(username.getText().toString()).exists()) {
-                                //Get User Information
-                                User user = dataSnapshot.child(username.getText().toString()).getValue(User.class);
-                                if (user.getPassword().equals(password.getText().toString())) {
-                                    startActivity(new Intent(Login.this, main_menu_dashboard.class));
-                                    Common.currentUser = user;
-                                    toastBerhasil();
+                            String input1 = username.getText().toString();
+                            String input2 = password.getText().toString();
+
+                            if (dataSnapshot.child(input1).exists()) {
+                                if (dataSnapshot.child(input1).child("password").getValue(String.class).equals(input2)) {
+                                    if (janganLogout.isChecked()) {
+                                        if (dataSnapshot.child(input1).child("as").getValue(String.class).equals("admin")) {
+                                            preferences.setDataLogin(Login.this, true);
+                                            preferences.setDataAs(Login.this, "admin");
+                                            startActivity(new Intent(Login.this, Dashboard.class));
+
+                                        } else if (dataSnapshot.child(input1).child("as").getValue(String.class).equals("member")) {
+                                            preferences.setDataLogin(Login.this, true);
+                                            preferences.setDataAs(Login.this, "member");
+                                            startActivity(new Intent(Login.this, main_menu_dashboard.class));
+                                        }
+
+                                    } else {
+                                        if (dataSnapshot.child(input1).child("as").getValue(String.class).equals("admin")) {
+                                            preferences.setDataLogin(Login.this, false);
+                                            startActivity(new Intent(Login.this, Dashboard.class));
+
+                                        } else if (dataSnapshot.child(input1).child("as").getValue(String.class).equals("member")) {
+                                            preferences.setDataLogin(Login.this, false);
+                                            startActivity(new Intent(Login.this, main_menu_dashboard.class));
+                                        }
+                                    }
                                 } else {
                                     toastError();
                                 }
+
                             } else {
                                 toastDataBelumTerdaftar();
                             }
@@ -124,27 +143,38 @@ public class Login extends AppCompatActivity {
 
                         }
                     });
+                } else {
+
                 }
             }
         });
     }
 
-    public void onBackPressed() {
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (preferences.getDataLogin(this)) {
+            if (preferences.getDataAs(this).equals("admin")) {
+                startActivity(new Intent(Login.this, Dashboard.class));
+                finish();
+            } else if (preferences.getDataAs(this).equals("user"))
+                startActivity(new Intent(Login.this, User.class));
+            finish();
+        }
+    }
+    public void onBackPressed(){
     }
 
-    //memunculkan toast error
-    public void toastError() {
-        FancyToast.makeText(this, "Kata Sandi Salah", FancyToast.LENGTH_LONG, FancyToast.ERROR, false).show();
+    public void toastError(){
+        FancyToast.makeText(this,"Kata Sandi Salah !", FancyToast.LENGTH_LONG, FancyToast.ERROR,false).show();
     }
 
-    //memunculkan toast berhasil
-    public void toastBerhasil() {
-        FancyToast.makeText(this, "Login Berhasil", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, false).show();
+    public void toastBerhasil(){
+        FancyToast.makeText(this, "Success Toast !", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, false).show();
     }
 
-
-    // memunculkan toast data belum terdaftar
-    public void toastDataBelumTerdaftar() {
-        FancyToast.makeText(this, "Data Belum Terdaftar di Database Kami", FancyToast.LENGTH_LONG, FancyToast.ERROR, false).show();
+    public void toastDataBelumTerdaftar(){
+        FancyToast.makeText(this,"Data Belum Terdaftar !", FancyToast.LENGTH_LONG, FancyToast.ERROR,false).show();
     }
 }
