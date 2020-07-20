@@ -6,6 +6,7 @@ public class User {
     private String Password;
     private String Squad;
     private String Nowa;
+    private String As;
 
     public User() {
     }
@@ -16,6 +17,7 @@ public class User {
         Password = password;
         Squad = squad;
         Nowa = nowa;
+        As =  "member";
     }
 
     public String getUsername() {
@@ -56,5 +58,13 @@ public class User {
 
     public void setNowa(String nowa) {
         Nowa = nowa;
+    }
+
+    public String getAs() {
+        return As;
+    }
+
+    public void setAs(String as) {
+        As = as;
     }
 }
