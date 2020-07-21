@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
+import com.delvinstudio.einstournament.Admin.MainMenuDashboard;
 import com.delvinstudio.einstournament.Common.Common;
 import com.delvinstudio.einstournament.Fragment.main_menu_dashboard;
 import com.delvinstudio.einstournament.Model.User;
@@ -59,7 +60,7 @@ public class Login extends AppCompatActivity {
         keFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent fragmentKuy = new Intent(Login.this, main_menu_dashboard.class);
+                Intent fragmentKuy = new Intent(Login.this, MainMenuDashboard.class);
                 startActivity(fragmentKuy);
             }
         });
@@ -110,7 +111,7 @@ public class Login extends AppCompatActivity {
                                         if (dataSnapshot.child(input1).child("as").getValue(String.class).equals("admin")) {
                                             preferences.setDataLogin(Login.this, true);
                                             preferences.setDataAs(Login.this, "admin");
-                                            startActivity(new Intent(Login.this, Dashboard.class));
+                                            startActivity(new Intent(Login.this, MainMenuDashboard.class));
 
                                         } else if (dataSnapshot.child(input1).child("as").getValue(String.class).equals("member")) {
                                             preferences.setDataLogin(Login.this, true);
@@ -121,7 +122,7 @@ public class Login extends AppCompatActivity {
                                     } else {
                                         if (dataSnapshot.child(input1).child("as").getValue(String.class).equals("admin")) {
                                             preferences.setDataLogin(Login.this, false);
-                                            startActivity(new Intent(Login.this, Dashboard.class));
+                                            startActivity(new Intent(Login.this, MainMenuDashboard.class));
 
                                         } else if (dataSnapshot.child(input1).child("as").getValue(String.class).equals("member")) {
                                             preferences.setDataLogin(Login.this, false);

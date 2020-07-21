@@ -92,7 +92,11 @@ public class SignUp extends AppCompatActivity {
                             else
                             {
                                 dialog.dismiss();
-                                User user = new User(etUsernameSignup.getText().toString(), etNamaSignup.getText().toString(), etPasswordSignup.getText().toString(), etSquadSignup.getText().toString(), etNoWaSignup.getText().toString());
+                                User user = new User(etUsernameSignup.getText().toString(),
+                                        etNamaSignup.getText().toString(),
+                                        etPasswordSignup.getText().toString(),
+                                        etSquadSignup.getText().toString(),
+                                        etNoWaSignup.getText().toString());
                                 table_login.child(etUsernameSignup.getText().toString()).setValue(user);
                                 suksesMendaftar();
                                 finish();

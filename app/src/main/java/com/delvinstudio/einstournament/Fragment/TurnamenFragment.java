@@ -1,7 +1,6 @@
 package com.delvinstudio.einstournament.Fragment;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,10 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.LinearInterpolator;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.EditText;
 
 import com.delvinstudio.einstournament.Interface.ItemClickListener;
 import com.delvinstudio.einstournament.Model.ModelJenisTurnamenMl;
@@ -24,13 +20,12 @@ import com.delvinstudio.einstournament.ViewHolder.JenisTurnamenViewHolder;
 import com.delvinstudio.einstournament.activity.UserListTurnamen.UserListTurnamenDetail;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
-import me.samlss.broccoli.Broccoli;
-import me.samlss.broccoli.BroccoliGradientDrawable;
-import me.samlss.broccoli.PlaceholderParameter;
+import java.util.ArrayList;
 
 public class TurnamenFragment extends Fragment {
     RecyclerView recyclerViewJenisTurnamen;
@@ -47,11 +42,10 @@ public class TurnamenFragment extends Fragment {
 
         DataRef = FirebaseDatabase.getInstance().getReference().child("listTurnamen");
 
-
         recyclerViewJenisTurnamen = view.findViewById(R.id.recycler_view_list_turnamen);
         recyclerViewJenisTurnamen.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerViewJenisTurnamen.setHasFixedSize(true);
-        
+
         loadData();
 
         return view;
@@ -69,7 +63,7 @@ public class TurnamenFragment extends Fragment {
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        Intent detailTurnamen = new Intent (getActivity(), UserListTurnamenDetail.class);
+                        Intent detailTurnamen = new Intent(getActivity(), UserListTurnamenDetail.class);
                         detailTurnamen.putExtra("listTurnamenKey", getRef(position).getKey());
 
                         startActivity(detailTurnamen);
@@ -89,6 +83,13 @@ public class TurnamenFragment extends Fragment {
         };
         adapter.startListening();
         recyclerViewJenisTurnamen.setAdapter(adapter);
+    }
 
+    public void showDialog() {
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity());
+        builder.setTitle("Silahkan Tunggu");
+        builder.setMessage("Sedang memuat, silahkan tunggu");
+        builder.setBackground(getResources().getDrawable(R.drawable.alert_dialog_bg, null));
+        builder.show();
     }
 }

@@ -3,6 +3,7 @@
     package="com.delvinstudio.einstournament">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:allowBackup="true"
@@ -11,13 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.UserListTurnamen.UserListTurnamenDetail"></activity>
+        <activity android:name=".Admin.MainMenuDashboard"></activity>
+        <activity android:name=".activity.UserListTurnamen.UserListTurnamenDetail" />
         <activity
             android:name=".Fragment.main_menu_dashboard"
             android:screenOrientation="portrait" />
         <activity android:name=".activity.SignUp" />
         <activity android:name=".activity.Login" />
         <activity android:name=".Test" />
+        <activity android:name=".Admin.AdminAddNewTurnamen" />
         <activity android:name=".data_input_team" />
         <activity android:name=".input_tournament.input_tournament" />
         <activity android:name=".activity.Dashboard" />

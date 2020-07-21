@@ -1,4 +1,4 @@
-package com.delvinstudio.einstournament.Fragment;
+package com.delvinstudio.einstournament.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -7,29 +7,28 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.delvinstudio.einstournament.Admin.Fragment.AdminDashboardFragment;
-import com.delvinstudio.einstournament.Common.Common;
-import com.delvinstudio.einstournament.activity.Login;
+import com.delvinstudio.einstournament.Admin.Fragment.AdminTurnamenFragment;
+import com.delvinstudio.einstournament.Fragment.DashboardFragment;
+import com.delvinstudio.einstournament.Fragment.ExitFragment;
+import com.delvinstudio.einstournament.Fragment.ProfileFragment;
+import com.delvinstudio.einstournament.Fragment.TurnamenFragment;
 import com.delvinstudio.einstournament.R;
-
+import com.delvinstudio.einstournament.activity.Login;
 import com.delvinstudio.einstournament.preferences.preferences;
-import com.google.android.material.button.MaterialButton;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import com.shashank.sony.fancytoastlib.FancyToast;
-import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog;
-import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
-public class main_menu_dashboard extends AppCompatActivity {
+public class MainMenuDashboard extends AppCompatActivity {
+
 
     ChipNavigationBar chipNavigationBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu_dashboard);
+        setContentView(R.layout.activity_admin_dashboard);
 
         chipNavigationBar = findViewById(R.id.bottom_nav_menu);
         chipNavigationBar.setItemSelected(R.id.bottom_nav_dashboard, true);
@@ -52,7 +51,7 @@ public class main_menu_dashboard extends AppCompatActivity {
                         break;
 
                     case R.id.bottom_nav_turnamen:
-                        fragment = new TurnamenFragment();
+                        fragment = new AdminTurnamenFragment();
                         break;
 
                     case R.id.bottom_nav_logout:
@@ -74,8 +73,8 @@ public class main_menu_dashboard extends AppCompatActivity {
         alertDialogBuilder.setPositiveButton("Iya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(main_menu_dashboard.this, Login.class));
-                preferences.clearData(main_menu_dashboard.this);
+                startActivity(new Intent(MainMenuDashboard.this, Login.class));
+                preferences.clearData(MainMenuDashboard.this);
                 toastBerhasilKeluar();
             }
         });
@@ -86,15 +85,15 @@ public class main_menu_dashboard extends AppCompatActivity {
             }
         });
 
-        AlertDialog alertDialog=alertDialogBuilder.create();
+        AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
 
-    public void onBackPressed(){
+    public void onBackPressed() {
 
     }
 
-    public void toastBerhasilKeluar(){
+    public void toastBerhasilKeluar() {
         FancyToast.makeText(this, "Berhasil Keluar !", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, false).show();
     }
 }
