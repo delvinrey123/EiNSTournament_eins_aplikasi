@@ -1,5 +1,6 @@
 package com.delvinstudio.einstournament.ViewHolder;
 
+import android.view.ContextMenu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -7,10 +8,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.delvinstudio.einstournament.Common.Common;
 import com.delvinstudio.einstournament.Interface.ItemClickListener;
 import com.delvinstudio.einstournament.R;
 
-public class JenisTurnamenViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class JenisTurnamenViewHolder extends RecyclerView.ViewHolder implements
+        View.OnClickListener {
 
     public ImageView ivJenisTurnamen;
     public TextView tvJenisTurnamen;
