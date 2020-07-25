@@ -96,7 +96,8 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (awesomeValidation.validate()){
+                if (
+                        awesomeValidation.validate()){
                     dialog.show();
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
                     databaseReference.child("login").addValueEventListener(new ValueEventListener() {
@@ -144,7 +145,9 @@ public class Login extends AppCompatActivity {
 
                         }
                     });
-                } else {
+                }
+                else
+                {
 
                 }
             }

@@ -12,7 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.delvinstudio.einstournament.Common.Common;
 import com.delvinstudio.einstournament.Interface.ItemClickListener;
 import com.delvinstudio.einstournament.Model.ModelJenisTurnamenMl;
 import com.delvinstudio.einstournament.R;

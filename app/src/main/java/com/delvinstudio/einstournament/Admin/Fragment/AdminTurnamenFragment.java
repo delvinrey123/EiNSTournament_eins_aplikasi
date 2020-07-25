@@ -63,7 +63,7 @@ public class AdminTurnamenFragment extends AppCompatDialogFragment {
     RecyclerView recyclerViewJenisTurnamen;
 
     //material edit text dan button menu add turnamen
-    Button btnSelect, btnUpload;
+    Button btnSelect, btnUpload, btnSubmitData;
     MaterialEditText addNamaTurnamen, addDeskripsiTurnamen, addTanggalTurnamen,
             addHargaTurnamen, addNomorWhatsApp, addAuthorTurnamen, addInstagramTurnamen;
 
@@ -118,7 +118,7 @@ public class AdminTurnamenFragment extends AppCompatDialogFragment {
         return view;
     }
 
-    private void showDialogAdd() {
+    /*private void showDialogAdd() {
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
         alertDialog.setTitle("Tambahkan Turnamen Baru");
@@ -165,6 +165,7 @@ public class AdminTurnamenFragment extends AppCompatDialogFragment {
         btnSelect = add_menu_new_turnamen.findViewById(R.id.btn_select);
         btnUpload = add_menu_new_turnamen.findViewById(R.id.btn_upload);
 
+
         //event onclick button upload
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,7 +180,7 @@ public class AdminTurnamenFragment extends AppCompatDialogFragment {
                 uploadImage();
             }
         });
-    }
+    }*/
 
     private void uploadImage() {
         if (saveUri != null) {
@@ -285,7 +286,7 @@ public class AdminTurnamenFragment extends AppCompatDialogFragment {
 
     private void showUpdateDialogTurnamen(final String key, final ModelJenisTurnamenMl item) {
         //alert dialog
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
         alertDialog.setTitle("Ganti Menu Turnamen Disini");
         alertDialog.setMessage("Tolong isi semua kolom yang ada");
 
@@ -345,7 +346,7 @@ public class AdminTurnamenFragment extends AppCompatDialogFragment {
                 Toast.makeText(getContext(), "Data Berhasil Ditambahkan !", Toast.LENGTH_SHORT)
                         .show();
             }
-        })
+        });
 
         alertDialog.setView(menu_add_turnamen);
         alertDialog.setIcon(R.drawable.ic_add_black);
@@ -401,8 +402,12 @@ public class AdminTurnamenFragment extends AppCompatDialogFragment {
         if (item.getTitle().equals(Common.UPDATE)) {
             showUpdateDialogTurnamen(adapter.getRef(item.getOrder()).getKey(), adapter.getItem(item.getOrder()));
         } else if (item.getTitle().equals(Common.DELETE)) {
-
+            deleteFood(adapter.getRef(item.getOrder()).getKey());
         }
         return super.onContextItemSelected(item);
+    }
+
+    private void deleteFood(String key) {
+        DataRef.child(key).removeValue();
     }
 }

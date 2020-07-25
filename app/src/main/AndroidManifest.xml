@@ -21,7 +21,6 @@
         <activity android:name=".activity.Login" />
         <activity android:name=".Test" />
         <activity android:name=".Admin.AdminAddNewTurnamen" />
-        <activity android:name=".data_input_team" />
         <activity android:name=".input_tournament.input_tournament" />
         <activity android:name=".activity.Dashboard" />
         <activity android:name=".activity.SplashActivity">
